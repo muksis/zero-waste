@@ -1,7 +1,7 @@
 function Free() {
   return (
     <div>
-      <h1>Offers</h1>
+      <h1>Free</h1>
     </div>
   );
 }
