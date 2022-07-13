@@ -20,8 +20,8 @@ function Navbar() {
           <li className='navbarListItem' onClick={() => navigate('/')}>
             <FaHome
               fill={pathMatchRoute('/') ? '#2c2c2c' : '#8f8f8f'}
-              width='36px'
-              height='36px'
+              // width='36px'
+              // height='36px'
             />
 
             <p
@@ -37,8 +37,8 @@ function Navbar() {
           <li className='navbarListItem' onClick={() => navigate('/free')}>
             <SiFreelancer
               fill={pathMatchRoute('/free') ? '#2c2c2c' : '#8f8f8f'}
-              width='36px'
-              height='36px'
+              // width='36px'
+              // height='36px'
             />
             <p
               className={
@@ -53,8 +53,8 @@ function Navbar() {
           <li className='navbarListItem' onClick={() => navigate('/profile')}>
             <BsPersonCircle
               fill={pathMatchRoute('/profile') ? '#2c2c2c' : '#8f8f8f'}
-              width='36px'
-              height='36px'
+              // width='36px'
+              // height='36px'
             />
             <p
               className={

@@ -184,14 +184,8 @@ button {
   color: #2c2c2c;
 }
 
-.nameInput {
-  margin-bottom: 2rem;
-  background: url() #ffffff 2.5% center no-repeat;
-}
-
 .emailInput {
   margin-bottom: 2rem;
-  background: url() #ffffff 2.5% center no-repeat;
 }
 
 .passwordInputDiv {
@@ -200,7 +194,6 @@ button {
 
 .passwordInput {
   margin-bottom: 2rem;
-  background: url() #ffffff 2.5% center no-repeat;
 }
 
 .showPassword {
