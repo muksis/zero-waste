@@ -5,7 +5,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
-import { setDoc, doc, serverTIme, serverTimestamp } from 'firebase/firestore';
+import { setDoc, doc, serverTime, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { FaChevronRight } from 'react-icons/fa';
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
