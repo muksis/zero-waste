@@ -144,7 +144,7 @@ button {
   left: 0;
   bottom: 0;
   right: 0;
-  height: 85px;
+  height: 75px;
   background-color: #ffffff;
   z-index: 1000;
   display: flex;
@@ -176,12 +176,16 @@ button {
 .navbarListItemName,
 .navbarListItemNameActive {
   margin-top: 0.25rem;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   color: #8f8f8f;
 }
 .navbarListItemNameActive {
   color: #2c2c2c;
+}
+
+.nameInput {
+  margin-bottom: 2rem;
 }
 
 .emailInput {
