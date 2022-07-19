@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import together from '../assets/png/together.png';
 import rentCategoryImage from '../assets/jpg/rentCategoryImage.jpg';
-import sellCategoryImage from '../assets/jpg/sellCategoryImage.jpg';
+import saleCategoryImage from '../assets/jpg/saleCategoryImage.jpg';
 
 function Home() {
   return (
@@ -26,10 +26,10 @@ function Home() {
             />
             <p className='homeCategory'>Things for rent</p>
           </Link>
-          <Link to='/category/sell'>
+          <Link to='/category/sale'>
             <img
-              src={sellCategoryImage}
-              alt='sell'
+              src={saleCategoryImage}
+              alt='sale'
               className='homeCategoryImg'
             />
             <p className='homeCategory'>Things for sale</p>
