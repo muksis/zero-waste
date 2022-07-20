@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
+import together from '../assets/png/together.png';
+import { FaChevronRight } from 'react-icons/fa';
 
 const Profile = () => {
   const auth = getAuth();
@@ -92,6 +94,12 @@ const Profile = () => {
             />
           </form>
         </div>
+
+        <Link to='/create-listing' className='createListing'>
+          <img src={together} alt='together' width='20px' height='20px' />
+          <p>Sell or let your things</p>
+          <FaChevronRight />
+        </Link>
       </main>
     </div>
   );
