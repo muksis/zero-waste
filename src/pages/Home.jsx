@@ -3,7 +3,7 @@ import together from '../assets/png/together.png';
 import rentCategoryImage from '../assets/jpg/rentCategoryImage.jpg';
 import saleCategoryImage from '../assets/jpg/saleCategoryImage.jpg';
 
-function Home() {
+const Home = () => {
   return (
     <div className='home'>
       <header>
@@ -38,6 +38,6 @@ function Home() {
       </main>
     </div>
   );
-}
+};
 
 export default Home;

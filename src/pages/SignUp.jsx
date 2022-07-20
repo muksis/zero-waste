@@ -12,7 +12,7 @@ import { db } from '../firebase.config';
 import { FaChevronRight } from 'react-icons/fa';
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
 
-function SignUp() {
+const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -126,6 +126,6 @@ function SignUp() {
       </div>
     </>
   );
-}
+};
 
 export default SignUp;

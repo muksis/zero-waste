@@ -6,7 +6,7 @@ import OAuth from '../components/Oath';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
 
-function SignIn() {
+const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -100,6 +100,6 @@ function SignIn() {
       </div>
     </>
   );
-}
+};
 
 export default SignIn;

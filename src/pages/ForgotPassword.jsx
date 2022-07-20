@@ -4,7 +4,7 @@ import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { FaChevronRight } from 'react-icons/fa';
 
-function ForgotPassword() {
+const ForgotPassword = () => {
   const [email, setEmail] = useState('');
 
   const onChange = (e) => setEmail(e.target.value);
@@ -50,6 +50,6 @@ function ForgotPassword() {
       </header>
     </div>
   );
-}
+};
 
 export default ForgotPassword;

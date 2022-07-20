@@ -5,7 +5,7 @@ import { updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
 
-function Profile() {
+const Profile = () => {
   const auth = getAuth();
 
   const [changeDetails, setChangeDetails] = useState(false);
@@ -95,6 +95,6 @@ function Profile() {
       </main>
     </div>
   );
-}
+};
 
 export default Profile;
