@@ -17,7 +17,7 @@ import { list } from 'postcss';
 
 const Category = () => {
   const [listings, setListings] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
 
@@ -47,7 +47,7 @@ const Category = () => {
         });
 
         setListings(listings);
-        setLoading(false);
+        setIsLoading(false);
       } catch (error) {
         toast.error('Could not fetch listings');
       }
@@ -66,7 +66,7 @@ const Category = () => {
         </p>
       </header>
 
-      {loading ? (
+      {isLoading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
         <>

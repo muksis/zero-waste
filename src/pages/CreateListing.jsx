@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
 
 const CreateListing = () => {
-  const [geolocationEnabled, setGeolocationEnabled] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [geolocationIsEnabled, setGeolocationIsEnabled] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     type: 'rent',
     name: '',
@@ -49,8 +50,47 @@ const CreateListing = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMounted]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
+
+    if (images.length > 6) {
+      setIsLoading(false);
+      toast.error('Max 6 images');
+      return;
+    }
+
+    let geolocation = {};
+    let location;
+
+    if (geolocationIsEnabled) {
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
+      );
+
+      const data = await response.json();
+
+      geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
+      geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
+
+      location =
+        data.status === 'ZERO_RESULTS'
+          ? undefined
+          : data.results[0]?.formated_address;
+
+      if (location === undefined || location.includes('undefined')) {
+        setIsLoading(false);
+        toast.error('Please enter a correct address');
+        return;
+      }
+    } else {
+      geolocation.lat = latitude;
+      geolocation.lng = longitude;
+      location = address;
+    }
+
+    setIsLoading(false);
   };
 
   const handleMutate = (e) => {
@@ -81,7 +121,7 @@ const CreateListing = () => {
     }
   };
 
-  if (loading) {
+  if (isLoading) {
     return <Spinner />;
   }
 
@@ -127,7 +167,7 @@ const CreateListing = () => {
           </div>
 
           <label htmlFor='name' className='formLabel'>
-            Name
+            Name of the Item
           </label>
           <input
             className='formInputName'
@@ -137,6 +177,56 @@ const CreateListing = () => {
             onChange={handleMutate}
             maxLength='32'
             minLength='10'
+            required
+          />
+
+          <label htmlFor='description' className='formLabel'>
+            Description
+          </label>
+          <textarea
+            className='formInputAddress'
+            type='text'
+            id='description'
+            value={description}
+            onChange={handleMutate}
+            required
+          />
+
+          {type !== 'free' && (
+            <>
+              <label htmlFor='price' className='formLabel'>
+                Price
+              </label>
+              <div className='formPriceDiv'>
+                <input
+                  className='formInputSmall'
+                  type='number'
+                  id='price'
+                  value={price}
+                  onChange={handleMutate}
+                  min='0.01'
+                  max='100000'
+                  required
+                />
+                {type === 'rent' && <p className='formPriceText'>$ / month</p>}
+              </div>
+            </>
+          )}
+
+          <label htmlFor='images' className='formLabel'>
+            Images
+          </label>
+          <p className='imagesInfo'>
+            The first image will be the cover (max 6).
+          </p>
+          <input
+            className='formInputFile'
+            type='file'
+            id='images'
+            onChange={handleMutate}
+            max='6'
+            accept='.jpg, .png, .jpeg'
+            multiple
             required
           />
 
@@ -152,7 +242,7 @@ const CreateListing = () => {
             required
           />
 
-          {!geolocationEnabled && (
+          {!geolocationIsEnabled && (
             <div className='formLatLng flex'>
               <div>
                 <label htmlFor='latitude' className='formLabel'>
@@ -182,56 +272,6 @@ const CreateListing = () => {
               </div>
             </div>
           )}
-
-          {type !== 'free' && (
-            <>
-              <label htmlFor='price' className='formLabel'>
-                Price
-              </label>
-              <div className='formPriceDiv'>
-                <input
-                  className='formInputSmall'
-                  type='number'
-                  id='price'
-                  value={price}
-                  onChange={handleMutate}
-                  min='50'
-                  max='750000000'
-                  required
-                />
-                {type === 'rent' && <p className='formPriceText'>$ / month</p>}
-              </div>
-            </>
-          )}
-
-          <label htmlFor='description' className='formLabel'>
-            Description
-          </label>
-          <textarea
-            className='formInputAddress'
-            type='text'
-            id='description'
-            value={description}
-            onChange={handleMutate}
-            required
-          />
-
-          <label htmlFor='images' className='formLabel'>
-            Images
-          </label>
-          <p className='imagesInfo'>
-            The first image will be the cover (max 6).
-          </p>
-          <input
-            className='formInputFile'
-            type='file'
-            id='images'
-            onChange={handleMutate}
-            max='6'
-            accept='.jpg, .png, .jpeg'
-            multiple
-            required
-          />
 
           <button className='primaryButton createListingButton' type='submit'>
             Create Listing

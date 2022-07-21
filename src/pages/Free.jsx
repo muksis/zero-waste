@@ -16,7 +16,7 @@ import Spinner from '../components/Spinner';
 
 const Free = () => {
   const [listings, setListings] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
 
@@ -46,7 +46,7 @@ const Free = () => {
         });
 
         setListings(listings);
-        setLoading(false);
+        setIsLoading(false);
       } catch (error) {
         toast.error('Could not fetch listings');
       }
@@ -60,7 +60,7 @@ const Free = () => {
         <p className='pageHeader'>Free</p>
       </header>
 
-      {loading ? (
+      {isLoading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
         <>
