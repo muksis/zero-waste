@@ -97,7 +97,7 @@ const Profile = () => {
 
         <Link to='/create-listing' className='createListing'>
           <img src={together} alt='together' width='20px' height='20px' />
-          <p>Sell or let your things</p>
+          <p>Sell, let or give away your things</p>
           <FaChevronRight />
         </Link>
       </main>
