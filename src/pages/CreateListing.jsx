@@ -6,6 +6,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from 'firebase/storage';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -139,7 +140,7 @@ const CreateListing = () => {
       });
     };
 
-    const imgUrls = await Promise.all(
+    const imageUrls = await Promise.all(
       [...images].map((image) => storeImage(image))
     ).catch(() => {
       setIsLoading(false);
@@ -147,7 +148,21 @@ const CreateListing = () => {
       return;
     });
 
+    const formDataCopy = {
+      ...formData,
+      imageUrls,
+      geolocation,
+      timestamp: serverTimestamp(),
+    };
+
+    delete formDataCopy.images;
+    delete formDataCopy.address;
+    location && (formDataCopy.location = location);
+
+    const docRef = await addDoc(collection(db, 'listings'), formDataCopy);
     setIsLoading(false);
+    toast.success('Listing saved');
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   };
 
   const handleMutate = (e) => {
