@@ -127,6 +127,7 @@ const CreateListing = () => {
           },
           (error) => {
             reject(error);
+            console.log(error);
           },
           () => {
             // Handle successful uploads on complete

@@ -50,6 +50,7 @@ const Category = () => {
         setIsLoading(false);
       } catch (error) {
         toast.error('Could not fetch listings');
+        console.log(error);
       }
     };
 

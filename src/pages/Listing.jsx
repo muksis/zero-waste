@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getDoc, doc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { db } from '../firebase.config';
+import { BsFillShareFill } from 'react-icons/bs';
 import Spinner from '../components/Spinner';
 
 const Listing = () => {
@@ -16,7 +17,7 @@ const Listing = () => {
 
   useEffect(() => {
     const fetchListing = async () => {
-      const docRef = doc(db, 'Listings', params.listingId);
+      const docRef = doc(db, 'listings', params.listingId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -28,7 +29,56 @@ const Listing = () => {
     fetchListing();
   }, [navigate, params.listingId]);
 
-  return <div>LISTING</div>;
+  if (loading) {
+    return <Spinner />;
+  }
+
+  return (
+    <main>
+      {/* SLIDER */}
+
+      <div
+        className='shareIconDiv'
+        onClick={() => {
+          navigator.clipboard.writeText(window.location.href);
+          setShareLinkCopied(true);
+          setTimeout(() => {
+            setShareLinkCopied(false);
+          }, 2000);
+        }}
+      >
+        <BsFillShareFill />
+      </div>
+
+      {shareLinkCopied && <p className='linkCopied'>Link Copied!</p>}
+
+      <div className='listingDetails'>
+        <p className='listingName'>
+          {listing.name}
+          {listing.type !== 'free' &&
+            ` – $${listing.price
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
+          {listing.type === 'rent' && ' / month'}
+        </p>
+        <p className='listingLocation'>{listing.location}</p>
+        <p className='listingType'>For {listing.type}</p>
+        <p className='listingDescription'>{listing.description}</p>
+        <p className='listingLocationTitle'>Location</p>
+
+        {/* MAP */}
+
+        {auth.currentUser?.uid !== listing.userRef && (
+          <Link
+            to={`/contacts/${listing.userRef}?listingName=${listing.name}&listingLocation=${listing.location}`}
+            className='primaryButton'
+          >
+            Contact Owner
+          </Link>
+        )}
+      </div>
+    </main>
+  );
 };
 
 export default Listing;

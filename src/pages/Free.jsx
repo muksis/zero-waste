@@ -29,7 +29,7 @@ const Free = () => {
         // Create a query
         const q = query(
           listingsRef,
-          where('offer', '==', true),
+          where('type', '==', 'free'),
           orderBy('timestamp', 'desc', limit(10))
         );
 
@@ -49,6 +49,7 @@ const Free = () => {
         setIsLoading(false);
       } catch (error) {
         toast.error('Could not fetch listings');
+        console.log(error);
       }
     };
     fetchListings();
@@ -77,7 +78,7 @@ const Free = () => {
           </main>
         </>
       ) : (
-        <p>There is no current free things</p>
+        <p>There are no current free things</p>
       )}
     </div>
   );
