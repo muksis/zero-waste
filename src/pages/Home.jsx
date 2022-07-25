@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Slider from '../components/Slider';
 import together from '../assets/png/together.png';
 import rentCategoryImage from '../assets/jpg/rentCategoryImage.jpg';
 import saleCategoryImage from '../assets/jpg/saleCategoryImage.jpg';
@@ -14,7 +15,7 @@ const Home = () => {
       </header>
 
       <main>
-        {/* Slider */}
+        <Slider />
 
         <p className='homeCategoryHeading'>Categories</p>
         <div className='homeCategories'>
