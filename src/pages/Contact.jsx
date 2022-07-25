@@ -48,11 +48,11 @@ const Contact = () => {
                 id='message'
                 className='textarea'
                 value={message}
-                onChange={() => setMessage(e.target.value)}
+                onChange={(e) => setMessage(e.target.value)}
               />
             </div>
             <a
-              href={`mailto:${landlord.email}?Subject=${searchParams.get(
+              href={`mailto:${owner.email}?Subject=${searchParams.get(
                 'ListingName'
               )}&body=${message}`}
             >
