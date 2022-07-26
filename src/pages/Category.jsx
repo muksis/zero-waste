@@ -13,11 +13,11 @@ import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
 import ListingItem from '../components/ListingItem';
 import Spinner from '../components/Spinner';
-import { list } from 'postcss';
 
 const Category = () => {
   const [listings, setListings] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [lastFetchedListing, setLastFetchedListing] = useState(null);
 
   const params = useParams();
 
@@ -31,11 +31,15 @@ const Category = () => {
         const q = query(
           listingsRef,
           where('type', '==', params.categoryName),
-          orderBy('timestamp', 'desc', limit(10))
+          orderBy('timestamp', 'desc'),
+          limit(5)
         );
 
         // Execute query
         const querySnap = await getDocs(q);
+
+        const lastVisible = querySnap.docs[querySnap.docs.length - 1];
+        setLastFetchedListing(lastVisible);
 
         const listings = [];
 
@@ -56,6 +60,43 @@ const Category = () => {
 
     fetchListings();
   }, [params.categoryName]);
+
+  // Pagination / Load More
+  const handleFetchMoreListings = async () => {
+    try {
+      // Get reference
+      const listingsRef = collection(db, 'listings');
+
+      // Create a query
+      const q = query(
+        listingsRef,
+        where('type', '==', params.categoryName),
+        orderBy('timestamp', 'desc'),
+        startAfter(lastFetchedListing),
+        limit(5)
+      );
+
+      // Execute query
+      const querySnap = await getDocs(q);
+
+      const lastVisible = querySnap.docs[querySnap.docs.length - 1];
+      setLastFetchedListing(lastVisible);
+
+      const listings = [];
+
+      querySnap.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+
+      setListings((prevState) => [...prevState, ...listings]);
+      setIsLoading(false);
+    } catch (error) {
+      toast.error('Could not fetch listings');
+    }
+  };
 
   return (
     <div className='category'>
@@ -82,6 +123,14 @@ const Category = () => {
               ))}
             </ul>
           </main>
+
+          <br />
+          <br />
+          {lastFetchedListing && (
+            <p className='loadMore' onClick={handleFetchMoreListings}>
+              Load More
+            </p>
+          )}
         </>
       ) : (
         <p>No listings for {params.categoryName}</p>
