@@ -14,6 +14,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Spinner from '../components/Spinner';
 
 const EditListing = () => {
+  // eslint-disable-next-line
   const [geolocationIsEnabled, setGeolocationIsEnabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [listing, setListing] = useState(false);
