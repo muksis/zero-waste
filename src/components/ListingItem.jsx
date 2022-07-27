@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { AiFillDelete } from 'react-icons/ai';
+import { MdEdit } from 'react-icons/md';
 
-const ListingItem = ({ listing, id, onDelete }) => {
+const ListingItem = ({ listing, id, onDelete, onEdit }) => {
   return (
     <li className='categoryListing'>
       <Link
@@ -30,6 +31,8 @@ const ListingItem = ({ listing, id, onDelete }) => {
           onClick={() => onDelete(listing.id, listing.name)}
         />
       )}
+
+      {onEdit && <MdEdit className='editIcon' onClick={() => onEdit(id)} />}
     </li>
   );
 };
