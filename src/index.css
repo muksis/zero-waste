@@ -182,11 +182,7 @@ button {
   color: hsl(21, 62%, 45%);
 }
 .navbarListItemNameActive {
-  width: 3.5rem;
-  height: 0.25rem;
-  background: hsl(210, 22%, 49%);
-  margin-left: auto;
-  margin-right: auto;
+  text-decoration: underline hsl(210, 22%, 49%) 0.25rem;
 }
 
 .nameInput {
@@ -534,6 +530,18 @@ button {
 .listingType {
   padding: 0.25rem 0.5rem;
   background-color: hsl(210, 22%, 49%);
+  color: #ffffff;
+  border-radius: 2rem;
+  display: inline;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-right: 1rem;
+  text-transform: capitalize;
+}
+
+.listingCondition {
+  padding: 0.25rem 0.5rem;
+  background-color: hsl(21, 62%, 45%);
   color: #ffffff;
   border-radius: 2rem;
   display: inline;

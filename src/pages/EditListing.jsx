@@ -20,6 +20,7 @@ const EditListing = () => {
   const [listing, setListing] = useState(false);
   const [formData, setFormData] = useState({
     type: 'rent',
+    condition: 'new',
     name: '',
     address: '',
     price: 0,
@@ -31,6 +32,7 @@ const EditListing = () => {
 
   const {
     type,
+    condition,
     name,
     address,
     price,
@@ -268,6 +270,34 @@ const EditListing = () => {
               onClick={handleMutate}
             >
               Give Away
+            </button>
+          </div>
+
+          <label htmlFor='condition' className='formLabel'>
+            Condition
+          </label>
+          <div className='formButtons'>
+            <button
+              type='button'
+              className={
+                condition === 'new' ? 'formButtonActive' : 'formButton'
+              }
+              id='type'
+              value='new'
+              onClick={handleMutate}
+            >
+              New
+            </button>
+            <button
+              type='button'
+              className={
+                condition === 'used' ? 'formButtonActive' : 'formButton'
+              }
+              id='condition'
+              value='used'
+              onClick={handleMutate}
+            >
+              Used
             </button>
           </div>
 

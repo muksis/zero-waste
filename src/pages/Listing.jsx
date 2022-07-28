@@ -89,6 +89,7 @@ const Listing = () => {
         </p>
         <p className='listingLocation'>{listing.location}</p>
         <p className='listingType'>For {listing.type}</p>
+        <p className='listingCondition'>{listing.condition}</p>
         <p className='listingDescription'>{listing.description}</p>
         <p className='listingLocationTitle'>Location</p>
 
