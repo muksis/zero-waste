@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 * {
   box-sizing: border-box;
-  color: hsl(209, 34%, 30%);
+  color: #324d67;
 }
 
 html::-webkit-scrollbar {
@@ -60,7 +60,7 @@ button {
 
 .primaryButton {
   cursor: pointer;
-  background: hsl(210, 22%, 49%);
+  background: #617d98;
   border-radius: 1rem;
   padding: 0.85rem 2rem;
   color: #ffffff;
@@ -122,7 +122,7 @@ button {
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: hsl(210, 22%, 49%) transparent hsl(210, 22%, 49%) transparent;
+  border-color: #617d98 transparent #617d98 transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }
@@ -179,10 +179,10 @@ button {
   margin-top: 0.25rem;
   font-size: 18px;
   font-weight: 600;
-  color: hsl(21, 62%, 45%);
+  color: #ba5d2c;
 }
 .navbarListItemNameActive {
-  text-decoration: underline hsl(210, 22%, 49%) 0.25rem;
+  text-decoration: underline #617d98 0.25rem;
 }
 
 .nameInput {
@@ -211,7 +211,7 @@ button {
 
 .forgotPasswordLink {
   cursor: pointer;
-  color: hsl(210, 22%, 49%);
+  color: #617d98;
   font-weight: 600;
   text-align: right;
 }
@@ -251,7 +251,7 @@ button {
   align-items: center;
   width: 3rem;
   height: 3rem;
-  background-color: hsl(210, 22%, 49%);
+  background-color: #617d98;
   border-radius: 50%;
 }
 @media (min-width: 1024px) {
@@ -288,7 +288,7 @@ button {
 
 .registerLink {
   margin-top: 2rem;
-  color: hsl(210, 22%, 49%);
+  color: #617d98;
   font-weight: 600;
   text-align: center;
   margin-bottom: 1rem;
@@ -449,7 +449,7 @@ button {
   margin-top: 0.5rem;
   font-weight: 600;
   font-size: 1.1rem;
-  color: hsl(210, 22%, 49%);
+  color: #617d98;
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -472,7 +472,7 @@ button {
   margin: 0 auto;
   text-align: center;
   padding: 0.25rem 0.5rem;
-  background-color: hsl(210, 22%, 49%);
+  background-color: #617d98;
   color: #ffffff;
   font-weight: 600;
   border-radius: 1rem;
@@ -529,7 +529,7 @@ button {
 
 .listingType {
   padding: 0.25rem 0.5rem;
-  background-color: hsl(210, 22%, 49%);
+  background-color: #617d98;
   color: #ffffff;
   border-radius: 2rem;
   display: inline;
@@ -541,7 +541,7 @@ button {
 
 .listingCondition {
   padding: 0.25rem 0.5rem;
-  background-color: hsl(21, 62%, 45%);
+  background-color: #ba5d2c;
   color: #ffffff;
   border-radius: 2rem;
   display: inline;
@@ -633,7 +633,7 @@ button {
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: hsl(210, 22%, 49%);
+  background-color: #617d98;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
 }
@@ -651,7 +651,7 @@ button {
 .changePersonalDetails {
   cursor: pointer;
   font-weight: 600;
-  color: hsl(210, 22%, 49%);
+  color: #617d98;
 }
 
 .profileCard {
@@ -746,7 +746,7 @@ button {
   align-items: center;
 }
 .formButtonActive {
-  background-color: hsl(210, 22%, 49%);
+  background-color: #617d98;
   color: #ffffff;
 }
 
@@ -801,7 +801,7 @@ button {
   width: 100%;
 }
 .formInputFile::-webkit-file-upload-button {
-  background-color: hsl(210, 22%, 49%);
+  background-color: #617d98;
   border: none;
   color: #ffffff;
   font-weight: 600;

@@ -39,6 +39,8 @@ function Navbar() {
           <li className='navbarListItem' onClick={() => navigate('/profile')}>
             <p
               className={
+                pathMatchRoute('/sign-in') ||
+                pathMatchRoute('/sign-up') ||
                 pathMatchRoute('/profile')
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'

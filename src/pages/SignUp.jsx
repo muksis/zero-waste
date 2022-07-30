@@ -110,10 +110,7 @@ const SignUp = () => {
             </Link>
 
             <div className='signUpBar'>
-              <p className='signUpText'>Sign Up</p>
-              <button className='signUpButton'>
-                <FaChevronRight fill='#ffffff' width='34px' height='34px' />
-              </button>
+              <button className='primaryButton'>Sign Up</button>
             </div>
           </form>
 
