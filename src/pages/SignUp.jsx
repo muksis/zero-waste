@@ -9,7 +9,6 @@ import {
 } from 'firebase/auth';
 import { setDoc, doc, serverTime, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.config';
-import { FaChevronRight } from 'react-icons/fa';
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
 
 const SignUp = () => {
@@ -30,8 +29,26 @@ const SignUp = () => {
     }));
   };
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!name) {
+      return toast.error('Please enter name');
+    }
+
+    if (!validateEmail(email)) {
+      return toast.error('Please enter a valid email');
+    }
+    if (password.length < 8) {
+      return toast.error('Your password must contain at least 8 characters');
+    }
 
     try {
       const auth = getAuth();

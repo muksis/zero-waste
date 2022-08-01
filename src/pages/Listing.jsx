@@ -88,8 +88,8 @@ const Listing = () => {
           {listing.type === 'rent' && ' / month'}
         </p>
         <p className='listingLocation'>{listing.location}</p>
-        <p className='listingType'>For {listing.type}</p>
-        <p className='listingCondition'>{listing.condition}</p>
+        <p className='listingType'>FOR {listing.type.toUpperCase()}</p>
+        <p className='listingCondition'> {listing.condition.toUpperCase()} </p>
         <p className='listingDescription'>{listing.description}</p>
         <p className='listingLocationTitle'>Location</p>
 

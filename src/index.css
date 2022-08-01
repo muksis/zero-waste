@@ -536,7 +536,6 @@ button {
   font-weight: 600;
   font-size: 0.8rem;
   margin-right: 1rem;
-  text-transform: capitalize;
 }
 
 .listingCondition {
@@ -548,7 +547,6 @@ button {
   font-weight: 600;
   font-size: 0.8rem;
   margin-right: 1rem;
-  text-transform: capitalize;
 }
 
 .listingLocationTitle {
