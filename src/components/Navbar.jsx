@@ -41,7 +41,9 @@ function Navbar() {
               className={
                 pathMatchRoute('/sign-in') ||
                 pathMatchRoute('/sign-up') ||
-                pathMatchRoute('/profile')
+                pathMatchRoute('/profile') ||
+                pathMatchRoute('/create-listing') ||
+                pathMatchRoute('/edit-listing')
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'
               }

@@ -66,7 +66,7 @@ button {
   color: #ffffff;
   font-weight: 600;
   font-size: 1.25rem;
-  width: 80%;
+  width: 40%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -342,7 +342,7 @@ button {
   font-weight: 600;
   max-width: 90%;
   font-size: 1.25rem;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(50, 77, 103, 0.8);
   padding: 0.5rem;
 }
 @media (min-width: 1024px) {
@@ -352,7 +352,7 @@ button {
 }
 
 .swiperSlidePrice {
-  color: #000000;
+  color: #324d67;
   position: absolute;
   top: 143px;
   left: 11px;
@@ -771,13 +771,13 @@ button {
 .formInputName {
   padding: 0.9rem 1rem;
   width: 90%;
-  max-width: 326px;
+  max-width: 436px;
 }
 
 .formInputAddress {
   padding: 0.9rem 1rem;
   width: 90%;
-  max-width: 326px;
+  max-width: 436px;
 }
 
 .formPriceDiv {
@@ -796,7 +796,9 @@ button {
 }
 
 .formInputFile {
-  width: 100%;
+  padding: 0.9rem 1rem;
+  width: 90%;
+  max-width: 436px;
 }
 .formInputFile::-webkit-file-upload-button {
   background-color: #617d98;
