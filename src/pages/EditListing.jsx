@@ -311,7 +311,7 @@ const EditListing = () => {
             value={name}
             onChange={handleMutate}
             maxLength='32'
-            minLength='10'
+            minLength='5'
             required
           />
 
