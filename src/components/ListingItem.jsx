@@ -17,10 +17,12 @@ const ListingItem = ({ listing, id, onDelete, onEdit }) => {
         <div className='categoryListingDetails'>
           <p className='categoryListingLocation'>{listing.location}</p>
           <p className='categoryListingName'>{listing.name}</p>
-          <p className='categoryListingPrice'>
-            ${listing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-            {listing.type === 'rent' && '/month'}
-          </p>
+          {listing.type !== 'free' && (
+            <p className='categoryListingPrice'>
+              ${listing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              {listing.type === 'rent' && '/month'}
+            </p>
+          )}
         </div>
       </Link>
 
