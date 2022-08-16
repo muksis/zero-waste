@@ -66,7 +66,7 @@ const Free = () => {
       // Create a query
       const q = query(
         listingsRef,
-        where('free', '==', true),
+        where('type', '==', 'free'),
         orderBy('timestamp', 'desc'),
         startAfter(lastFetchedListing),
         limit(5)
