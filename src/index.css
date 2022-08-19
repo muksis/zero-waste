@@ -179,10 +179,10 @@ button {
   margin-top: 0.25rem;
   font-size: 18px;
   font-weight: 600;
-  color: #ba5d2c;
+  color: #d69e80;
 }
 .navbarListItemNameActive {
-  text-decoration: underline #617d98 0.25rem;
+  color: #ba5d2c;
 }
 
 .nameInput {
