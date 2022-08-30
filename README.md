@@ -13,4 +13,4 @@ A CRUD second-life-of-things project built with React JS (including Router, Leaf
 * Location of each listing is shown on the map.
 
 ## How to run
-In the project directory, you can run 'npm run dev’ and open [http://localhost:3000](http://localhost:3000) to view it in your browser or just click [here](https://zero-waste.mariia.io).
+In the project directory, you can run 'npm run dev’ and open [http://localhost:3000](http://localhost:3000) to view it in your browser or just click [here](https://zero-waste-mariia-io.herokuapp.com).
